@@ -1,32 +1,53 @@
 import java.util.*;
 public class BalancedParanthesis{
-  public static void main(String bhavesh[]) throws Exception{
-    ArrayDeque<Character> st = new ArrayDeque<Character>();
-    String strr = "{}(";
-    char ch[] = strr.toCharArray();
-    boolean is_balanced = true;
-    for(char c : ch){
+
+public static void main(String []argh)
+{
+	Scanner sc = new Scanner(System.in);
+  ArrayDeque<Character> st = new ArrayDeque<Character>(100000);
+	String input=sc.next();
+  char ch[] = input.toCharArray();
+  boolean is_balanced = true;
+
+  for(char c : ch){
       if(c == '{' || c == '[' || c == '('){
-        st.push(c);
-        continue;
-      }
-      if(c == ')' && st.peek() == '('){
-        st.pop();
-      }
-      else if(c == '}' && st.peek() == '{'){
-        st.pop();
-      }
-      else if(c == ']' && st.peek() == '['){
-        st.pop();
+          st.push(c);
       }else{
-        is_balanced = false;
-        break;
+          if(st.isEmpty()){
+              is_balanced = false;
+              break;
+          }
+          if(c == ')'){
+              if(st.peek() == '('){
+              st.pop();
+          }else{
+              is_balanced = false;
+              break;
+          }
+          }else if(c == '}'){
+              if(st.peek() == '{'){
+              st.pop();
+          }else{
+              is_balanced = false;
+              break;
+          }
+          }else if(c == ']'){
+              if(st.peek() == '['){
+              st.pop();
+          }else{
+              is_balanced = false;
+              break;
+          }
       }
+
+
     }
-    if(is_balanced){
-      System.out.println("balanced");
+
+    }
+    if(is_balanced && st.isEmpty()){
+        System.out.println("true");
     }else{
-      System.out.print("unbalanced");
+        System.out.println("false");
     }
   }
 }
