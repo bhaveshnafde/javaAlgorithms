@@ -4,7 +4,7 @@ public class BalancedParanthesis{
 public static void main(String []argh)
 {
 	Scanner sc = new Scanner(System.in);
-  ArrayDeque<Character> st = new ArrayDeque<Character>(100000);
+  ArrayDeque<Character> st = new ArrayDeque<Character>();
 	String input=sc.next();
   char ch[] = input.toCharArray();
   boolean is_balanced = true;
