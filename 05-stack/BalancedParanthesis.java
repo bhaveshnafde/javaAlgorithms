@@ -1,8 +1,8 @@
-package Stacks;
+import java.util.*;
 public class BalancedParanthesis{
   public static void main(String bhavesh[]) throws Exception{
-    StackByLinkedList<Character> st = new StackByLinkedList<Character>(100000);
-    String strr = "{([{}(])}";
+    ArrayDeque<Character> st = new ArrayDeque<Character>();
+    String strr = "{}(";
     char ch[] = strr.toCharArray();
     boolean is_balanced = true;
     for(char c : ch){
