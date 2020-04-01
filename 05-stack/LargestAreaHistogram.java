@@ -23,7 +23,7 @@ public class LargestAreaHistogram{
         max_area = Math.max(area, max_area);
       }
     }
-    while(st.isEmpty()){
+    while(!st.isEmpty()){
       tp = st.pop();
       if(st.isEmpty()){
         area = hist[tp] * i;
