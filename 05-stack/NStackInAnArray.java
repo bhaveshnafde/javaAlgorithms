@@ -1,4 +1,4 @@
-public class NStackInAnArray{
+  public class NStackInAnArray{
   int arr[];
   int top[];
   int next[];
