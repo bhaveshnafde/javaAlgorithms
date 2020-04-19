@@ -1,27 +1,39 @@
+/*
+push : add the element to store.
+pop : transfer all element except last to transfer queue,
+      then dequeue and store the last element. and then
+      swap the queues.
+*/
 import java.util.*;
 public class StackUsingQueues{
-  static Queue<Integer> q2 = new LinkedList<Integer>();
-  static Queue<Integer> q1 = new LinkedList<Integer>();
+  Queue<Integer> store = new LinkedList<Integer>();
+  Queue<Integer> transfer = new LinkedList<Integer>();
 
-  public static void enqueue(int data){
-    q2.add(data);
-    int i = q1.size();
-    while(!q1.isEmpty()){
-      q2.add(q1.remove());
+  void push(int data){
+    store.add(data);
+  }
+
+  int pop(){
+    int len = store.size();
+    while(--len>0){
+      transfer.add(store.remove());
     }
-    Queue<Integer> temp = q1;
-    q1 = q2;
-    q2 = temp;
+    int temp = store.remove();
+    Queue<Integer> x = transfer;
+    transfer = store;
+    store = x;
+    return temp;
   }
 
   public static void main(String[] bhavesh) {
-    q1.add(1);
-    q1.add(2);
-    q1.add(3);
-    enqueue(4);
-    System.out.println(q1.remove());
-    System.out.println(q1.remove());
-    System.out.println(q1.remove());
-    System.out.println(q1.remove());
+    StackUsingQueues st = new StackUsingQueues();
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    System.out.println(st.pop());
+    System.out.println(st.pop());
+    System.out.println(st.pop());
+    System.out.println(st.pop());
   }
 }
