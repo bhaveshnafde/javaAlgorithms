@@ -11,7 +11,7 @@ class A{
     }
   }
   public static void main(String args[]){
-    int arr[] = {4,5,8,7,9};
+    int arr[] = {2,5,6};
     int n = arr.length;
     printAllSubsets(arr,n);
   }
