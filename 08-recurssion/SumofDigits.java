@@ -1,13 +1,13 @@
 public class SumofDigits{
 
-  public static int sum(int num, int sum){
-    if(num == 0)  return sum;
+  public static int sum(int num){
+    if(num < 10)  return num;
     else{
-      return sum(num/10, sum+num%10);
+      return sum(num/10) + (num%10);
     }
   }
 
   public static void main(String[] args) {
-    System.out.println(sum(9978, 0));
+    System.out.println(sum(9978));
   }
 }
